@@ -1,11 +1,11 @@
 # configuration for the website
 COMMENTS = "comments.sqlite"
-DATABASE = "stacks.sqlite"
+DATABASE = "ega.sqlite"
 UNIT = "section"
 DEPTH = 0
 
 # configuration for the import
-PATH = "stacks"
-PAUX = "stacks.paux"
-TAGS = "stacks.tags"
-PDF = "stacks.pdf"
+PATH = "ega"
+PAUX = "ega.paux"
+TAGS = "ega.tags"
+PDF = "ega.pdf"

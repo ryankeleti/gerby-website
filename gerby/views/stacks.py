@@ -170,9 +170,9 @@ def show_chapter_message(chapter):
 @app.route("/tex/<string:filename>")
 def send_to_github(filename=""):
   if filename != "":
-    return redirect("https://github.com/stacks/stacks-project/blob/master/%s" % filename)
+    return redirect("https://github.com/ryankeleti/ega/blob/master/%s" % filename)
   else:
-    return redirect("https://github.com/stacks/stacks-project")
+    return redirect("https://github.com/ryankeleti/ega")
 
 
 @app.route("/download/<string:filename>")

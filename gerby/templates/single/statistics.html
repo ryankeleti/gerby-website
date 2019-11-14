@@ -15,9 +15,9 @@
 
 {% block body %}
 <h2>Statistics</h2>
-<p>Here we collect some metrics regarding the Stacks project. If you have a suggestion for an interesting metric, <a href="mailto:stacks.project@gmail.com">please get in touch</a>.
+<p>Some stats.
 
-<h3>Breakdown of tags per type</h3>
+<h3>Tags per type</h3>
 <p>There are {{ total }} tags in total.
 <table class="table table-striped table-sm table-hover">
   <thead>
@@ -27,7 +27,7 @@
     </tr>
   </thead>
   <tbody>
-    {% for environment in ["definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem"] %}
+    {% for environment in ["defn", "exm", "rmk", "lem", "prop", "cor", "thm"] %}
       <tr>
         <td>{{ environment }}</td>
         <td class="text-center">{{ counts[environment] }}
@@ -88,20 +88,9 @@
   </thead>
   <tbody>
     <tr>
-      <td>number of slogans</td>
-      <td>{{ extras["slogans"] }}</td>
-    </tr>
-
-    <tr>
       <td>number of references</td>
       <td>{{ extras["references"] }}</td>
     </tr>
-
-    <tr>
-      <td>number of historical remarks</td>
-      <td>{{ extras["historical remarks"] }}</td>
-    </tr>
-
     <tr>
       <td>number of comments</td>
       <td>{{ extras["comments"] }}</td>

@@ -475,3 +475,4 @@ if __name__ == "__main__":
   if not args.noBookStats:
     log.info("Processing book statistics")
     computeBookStats()
+

@@ -31,7 +31,7 @@
     {{ neighbours(neighboursList, neighboursModifier, tag) }}
   </div>
 
-  {% if tag.type in ["definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem"] %}
+  {% if tag.type in ["defn", "exm", "lem", "prop", "rmk", "cor", "thm"] %}
     <hr>
 
     <div class="information">
@@ -47,12 +47,12 @@
 
   <hr>
   {% if tag.type == "part" %}
-    {#<a href="https://stacks.math.columbia.edu/download/{{ filename }}.pdf">View Part <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>#}
+    {#<a href="https://fppf.site/ega/{{ filename }}.pdf">View Part <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>#}
   {% else %}
-    <a href="https://stacks.math.columbia.edu/download/{{ filename }}.pdf#nameddest={{ tag.tag }}">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>
+    <a href="https://fppf.site/ega/{{ filename }}.pdf#nameddest={{ tag.tag }}">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>
   {% endif %}
 
-  {% if tag.type in ["definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem"] %}
+  {% if tag.type in ["defn", "exm", "lem", "prop", "rmk", "cor", "thm"] %}
 
     <hr>
 
@@ -92,3 +92,4 @@
     <a tabindex="0" role="button" data-trigger="focus" data-placement="bottom" class="btn badge badge-info" data-toggle="popover" title="Reference" data-html="true" data-content='{{ tag.reference.html }}'>reference</a>
   {% endif %}
 {% endmacro %}
+

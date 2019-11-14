@@ -12,19 +12,20 @@
 
 {% block body %}
   <h2>Overview of the <abbr title="Application Programming Interface">API</abbr></h2>
-  <p>It is possible to query the Stacks project yourself through an <abbr>API</abbr>. This way you don"t have to scrape the information from the <abbr title="HyperText Markup Language">HTML</abbr> pages and it is consistent with our goal that the content of the Stacks project be as open as possible.
-  <p>We can think of several applications:
+  <p><em>This page is mostly unmodified from the <a href="https://stacks.math.columbia.edu/api">Stacks Project's API page</a></em>.
+  <p>It is possible to query this project yourself through an <abbr>API</abbr>. This way you don't have to scrape the information from the <abbr title="HyperText Markup Language">HTML</abbr> pages and it is consistent with our goal that the content of this project be as open as possible (thanks, Stacks Project!).
+  <p>Several applications:
   <ul>
     <li>developing smartphone apps / mobile versions of the Stacks website;
     <li>extracting meta-information about the Stacks project;
     <!--<li>creating your own graphs;-->
     <li>... (please make suggestions!)
   </ul>
-  <p>If you intend to use this <abbr>API</abbr>, please contact us at <a href="mailto:stacks.project@gmail.com">stacks.project@gmail.com</a>. <strong>This interface is not stable, please get in touch to discuss this with us</strong>.
+  <p>If you intend to use this <abbr>API</abbr>, please contact the Stacks Project at <a href="mailto:stacks.project@gmail.com">stacks.project@gmail.com</a>. <strong>This interface is not stable, please get in touch to discuss this with us</strong>.
   <p>The current <abbr>API</abbr> has less features than the previous one. If this causes problems, please get in touch. We intend to improve it over time.
 
   <h2>Statements</h2>
-  <p>There are two different possibilities to get the statement of a tag:
+  <p>There are two different possibilities to get the statement of a tag (from the Stacks Project for now),
   <ol>
     <li><abbr title="HyperText Markup Language">HTML</abbr>, <em>without</em> proof:
       <pre><code>https://stacks.math.columbia.edu/data/tag/&lsaquo;<em>tag</em>&rsaquo;/content/statement</code></pre>

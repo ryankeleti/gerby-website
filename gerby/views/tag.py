@@ -328,3 +328,4 @@ def show_tag_statistics(tag):
                          statistics=statistics,
                          filename=tag.label.split("-" + tag.type)[0],
                          dependencies=tag.incoming)
+

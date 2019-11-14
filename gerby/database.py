@@ -176,3 +176,4 @@ class Comment(CommentBaseModel):
   date = DateTimeField(default=datetime.datetime.now)
   comment = TextField(null=True)
   active = BooleanField(default=True)
+

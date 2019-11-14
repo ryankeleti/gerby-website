@@ -137,7 +137,7 @@ def show_history(tag):
   neighbours = gerby.views.tag.getNeighbours(tag)
 
   # only show history for tags for which we have one
-  if tag.type not in ["definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem"]:
+  if tag.type not in ["defn", "exm", "lem", "prop", "rmk", "cor", "thm"]:
     return render_template("tag.history.invalid.html", tag=tag, breadcrumb=breadcrumb)
 
   if Change.table_exists():
@@ -187,5 +187,5 @@ def show_recent_changes():
     commit.time = datetime.datetime.strptime(commit.time.decode(), "%Y-%m-%d %H:%M:%S %z")
     commit.tags = sorted(Tag.select().join(Change).where(Change.commit == commit, Change.action << ["tag", "statement", "proof", "statement and proof"]).distinct())
 
-  return render_template("stacks/changes.html", commits=commits)
+  return render_template("ega/changes.html", commits=commits)
 

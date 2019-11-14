@@ -33,20 +33,14 @@ app.config.from_object(__name__)
 
 feeds = {
   "github": {
-    "url": "https://github.com/stacks/stacks-project/commits/master.atom",
-    "title": "Recent commits",
-    "link": "https://github.com/stacks/stacks-project/commits",
-  },
-  "blog": {
-    "url": "https://www.math.columbia.edu/~dejong/wordpress/?feed=rss2",
-    "title": "Recent blog posts",
-    "link": "https://www.math.columbia.edu/~dejong/wordpress",
+    "url": "https://github.com/ryankeleti/ega/commits/master.atom",
+    "title": "recent commits",
+    "link": "https://github.com/ryankeleti/ega/commits",
   },
 }
 
 # set timeout for feed request
 socket.setdefaulttimeout(5)
-
 
 def get_statistics():
   statistics = []
@@ -183,3 +177,4 @@ import gerby.views.tag
 
 # Stacks project specific pages
 import gerby.views.stacks
+

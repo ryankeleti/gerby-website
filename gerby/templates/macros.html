@@ -31,7 +31,7 @@
     {{ neighbours(neighboursList, neighboursModifier, tag) }}
   </div>
 
-  {% if tag.type in ["definition", "example", "remark", "lemma", "proposition", "corollary", "theorem"] %}
+  {% if tag.type in ["env", "definition", "example", "remark", "lemma", "proposition", "corollary", "theorem"] %}
     <hr>
 
     <div class="information">
@@ -52,8 +52,7 @@
     <a href="https://fppf.site/ega/{{ filename }}.pdf#nameddest={{ tag.tag }}">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>
   {% endif %}
 
-  {% if tag.type in ["definition", "example", "remark", "lemma", "proposition", "corollary", "theorem"] %}
-
+  {% if tag.type in ["env", "definition", "example", "remark", "lemma", "proposition", "corollary", "theorem"] %}
     <hr>
 
     <div class="information">

@@ -27,7 +27,7 @@
     </tr>
   </thead>
   <tbody>
-    {% for environment in ["definition", "example", "remark", "lemma", "proposition", "corollary", "theorem"] %}
+    {% for environment in ["env", "definition", "example", "remark", "lemma", "proposition", "corollary", "theorem"] %}
       <tr>
         <td>{{ environment }}</td>
         <td class="text-center">{{ counts[environment] }}

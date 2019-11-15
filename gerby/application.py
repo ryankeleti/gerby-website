@@ -34,7 +34,7 @@ app.config.from_object(__name__)
 feeds = {
   "github": {
     "url": "https://github.com/ryankeleti/ega/commits/master.atom",
-    "title": "recent commits",
+    "title": "Recent commits",
     "link": "https://github.com/ryankeleti/ega/commits",
   },
 }

@@ -60,7 +60,7 @@ def get_statistics():
   statistics.append(str(tags) + " tags")
   statistics.append(str(Tag.select().where(Tag.type == "section").count()) + " sections")
   statistics.append(str(Tag.select().where(Tag.type == "chapter").count()) + " chapters")
-  statistics.append(str(Slogan.select().count()) + " slogans")
+#  statistics.append(str(Slogan.select().count()) + " slogans")
 
   return statistics
 

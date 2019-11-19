@@ -139,13 +139,11 @@ $(function () {
   <p>In your comment you can use <a href="/markdown">Markdown</a> and LaTeX style mathematics (enclose it like <code>$\pi$</code>). A preview option is available if you wish to see how it works out (just click on the eye in the toolbar).
   <noscript><p>Unfortunately JavaScript is disabled in your browser, so the comment preview function will not work.</p></noscript>
 
-  <p>All contributions are licensed under the <a href="https://github.com/stacks/stacks-project/blob/master/COPYING">GNU Free Documentation License</a>.
-
   <form name="comment" id="comment-form" action="/post-comment" method="post">
     <label for="name">Name<sup>*</sup>:</label>
     <input type="text" name="name" id="name" required><br>
 
-    <label for="mail">E-mail<sup>*</sup>:</label>
+    <label for="mail">Email<sup>*</sup>:</label>
     <input type="email" name="mail" id="mail" required><br>
 
     <label for="site">Site:</label>
@@ -219,14 +217,14 @@ easymde.element.form.addEventListener("submit", function(event) {
 });
     </script>
 
-    <p>In order to prevent bots from posting comments, we would like you to prove that you are human. You can do this by <em>filling in the name of the current tag</em> in the following input field. As a reminder, this is tag <span class="tag">{{ tag.tag }}</span>. Beware of the difference between the letter&nbsp;'<span class="tag">O</span>' and the digit&nbsp;'<span class="tag">0</span>'.</p>
+    <p>Type the name of the current tag in the following input field to post your comment. This is tag <span class="tag">{{ tag.tag }}</span>. Beware of the difference between the letter&nbsp;'<span class="tag">O</span>' and the digit&nbsp;'<span class="tag">0</span>'.</p>
     <!--<p>This <abbr title="Completely Automated Public Turing test to tell Computers and Humans Apart">captcha</abbr> seems more appropriate than the usual illegible gibberish, right?<br>-->
     <label for="check">Tag:</label>
     <input type="text" name="check" id="check" required autocomplete="off">
     <button type="submit" class="btn btn-primary">Post comment</button>
     <input type="hidden" name="tag" id="hidden-tag" value="{{ tag.tag }}"><br>
 
-    <p id="captcha-message" style="display: none" class="alert alert-warning" role="alert">The tag you filled in for the captcha is wrong. You need to write <span class="tag">{{ tag.tag }}</span>, in case you are confused.</p>
+    <p id="captcha-message" style="display: none" class="alert alert-warning" role="alert">The tag you filled in for the captcha is wrong. You need to write <span class="tag">{{ tag.tag }}</span>.</p>
 
     <script type="text/javascript">
 // enter in captcha fields causes \ref to appear (?!)
@@ -256,3 +254,4 @@ $("input#check").on("keypress", function(e) {
 {% block sidebar %}
   {{ macros.tagSidebar(tag, neighbours, "", dependencies, filename) }}
 {% endblock %}
+

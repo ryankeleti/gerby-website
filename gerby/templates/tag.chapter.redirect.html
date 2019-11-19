@@ -17,7 +17,6 @@
   <h2>Chapter {{ tag.ref }}</h2>
 
   <div class="alert alert-warning">
-    <p>The Stacks project <a href="/tags">uses tags</a> as means of identifying results. Chapter numbers on the other hand can change over time when new results are added. So it's not guaranteed that this URL is still up-to-date.
     <p>Right now chapter {{ tag.ref }} refers to <a href="/tag/{{ tag.tag }}">Chapter <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span>: {{ tag.name | safe }}</a>.
   </div>
 {% endblock %}

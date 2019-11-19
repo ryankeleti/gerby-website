@@ -23,39 +23,7 @@
 {% endblock %}
 
 {% block body %}
-  <h2>How to cite tag <span class="tag">{{ tag.tag }}</span></h2>
-
   <p>Go <a href="/tag/{{ tag.tag }}">back to the tag page</a>.
 
-  <p>You can use one of the following citations in your LaTeX code.
-  <ul id="citations">
-    <li>
-    <button class="clipboard" data-clipboard-target="#cite-tag-link"><img src="/static/images/clippy.svg"></button>
-    <code id="cite-tag-link">\cite[\href{https://stacks.math.columbia.edu/tag/{{ tag.tag }}}{Tag {{ tag.tag }}}]{stacks-project}</code>
-
-    <li>
-    <button class="clipboard" data-clipboard-target="#cite-type-link"><img src="/static/images/clippy.svg"></button>
-    <code id="cite-type-link">\cite[\href{https://stacks.math.columbia.edu/tag/{{ tag.tag }}}{% raw %}{{% endraw %}{{ tag.type | capitalize }} {{ tag.tag }}{% raw %}}{% endraw %}]{stacks-project}</code>
-
-    <li>
-    <button class="clipboard" data-clipboard-target="#link-tag"><img src="/static/images/clippy.svg"></button>
-    <code id="link-tag">\href{https://stacks.math.columbia.edu/tag/{{ tag.tag }}}{Tag {{ tag.tag }}}</code>
-
-    <li>
-    <button class="clipboard" data-clipboard-target="#link-type"><img src="/static/images/clippy.svg"></button>
-    <code id="link-type">\href{https://stacks.math.columbia.edu/tag/{{ tag.tag }}}{% raw %}{{% endraw %}{{ tag.type | capitalize }} {{ tag.tag }}}</code>
-  </ul>
-  <script type="text/javascript">
-new ClipboardJS(".clipboard");
-  </script>
-
-  <p>You can use the following in your BibTeX file.
-  <pre><code>@misc{stacks-project,
-  author       = {The {Stacks project authors}},
-  title        = {The Stacks project},
-  howpublished = {\url{https://stacks.math.columbia.edu}},
-  year         = {% raw %}{{% endraw %}{{ time.year }}},
-}</code></pre>
-  <p>You can also consider using the <code>@online</code> type in BibLaTeX, changing the the <code>howpublished</code> to <code>url</code>. Another neat trick in BibLaTeX is the <code>shorthand</code> field, which you could set to <code>SP</code> or <code>Stacks</code>.
 {% endblock %}
 

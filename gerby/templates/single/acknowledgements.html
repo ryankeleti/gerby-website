@@ -7,17 +7,8 @@
 {% endblock %}
 
 {% block body %}
-  <h2>Acknowledgements</h2>
-  <p>Here is the current status of the file <a href="https://github.com/ryankeleti/ega/tree/master/CONTRIBUTORS"><var>CONTRIBUTORS</var></a> in the project. If you have participated in this project, please let us know so we can add you to the list.
-
-  <ul>
-    {% for acknowledgement in acknowledgements %}
-      <li>{{ acknowledgement }}
-    {% endfor %}
-  </ul>
-
   <h2>Gerby</h2>
-  <p>The website for the Stacks project uses <a href="https://gerby-project.github.io/">Gerby</a> as the underlying system. It was written by <a href="https://pbelmans.ncag.info/">Pieter Belmans</a> and <a href="https://www.math.columbia.edu/~rcheng/">Raymond Cheng</a>. It is an open source system, which combines
+  <p>The website for this project uses <a href="https://gerby-project.github.io/">Gerby</a> as the underlying system. It was written by <a href="https://pbelmans.ncag.info/">Pieter Belmans</a> and <a href="https://www.math.columbia.edu/~rcheng/">Raymond Cheng</a>. It is an open source system, which combines
   <ul>
     <li>a LaTeX processing tool built using <a href="https://github.com/tiarno/plastex">plastex</a>
     <li>a website built using <a href="http://flask.pocoo.org/">Flask</a>
@@ -30,8 +21,5 @@
 
 {% block sidebar %}
   {{ macros.singlePageLinks() }}
-
 {% endblock %}
-
-
 

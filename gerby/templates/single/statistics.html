@@ -34,7 +34,7 @@
       </tr>
     {% endfor %}
 
-    {% for environment in ["chapter", "section", "subsection"] %}
+    {% for environment in ["part", "chapter", "section", "subsection"] %}
       <tr>
         <td>{{ environment }}</td>
         <td class="text-center">{{ counts[environment] }}

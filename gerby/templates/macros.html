@@ -47,8 +47,8 @@
 
   <hr>
   {# todo #}
-  {% if tag.type == "chapter" %}
-    {#<a href="https://fppf.site/ega/ega{{ tag.ref }}-auto.pdf">View Chapter <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>#}
+  {% if tag.type == "part" %}
+    {#<a href="https://fppf.site/ega/ega{{ tag.ref }}-auto.pdf">View Part <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>#}
   {% else %}
     <a href="https://fppf.site/ega/ega{{ tag.ref }}-auto.pdf#nameddest={{ tag.tag }}">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>
   {% endif %}

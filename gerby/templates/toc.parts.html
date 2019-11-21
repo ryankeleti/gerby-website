@@ -24,6 +24,7 @@
       <li id="{{ part.tag }}" class="expanded">
         <a class="header-offset" id="{{ part.label }}"></a>
         <strong><a href="/tag/{{ part.tag }}">Part <span data-tag="{{ part.tag }}">{{ part.ref }}</span></a>: {{ part.name }}</strong>
+        <a href="https:fppf.site/ega/ega{{ part.ref }}-auto.pdf" class="pdf-link">pdf</a>
 
         {#
         {% set filename = part.label.split("-part-")[1] %}
@@ -82,6 +83,6 @@ $("a.sidebar-link").click(function() {
 
   <hr>
 
-  <a href="/download/book.pdf">Download the book</a>
+  <a href="https://fppf.site/ega/book-auto.pdf">Download full PDF</a>
 {% endblock %}
 

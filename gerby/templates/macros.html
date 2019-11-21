@@ -50,7 +50,9 @@
   {% if tag.type == "part" %}
     {#<a href="https://fppf.site/ega/ega{{ tag.ref }}-auto.pdf">View Part <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>#}
   {% else %}
+<!--
     <a href="https://fppf.site/ega/ega{{ tag.ref }}-auto.pdf#nameddest={{ tag.tag }}">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>
+-->
   {% endif %}
 
   {% if tag.type in ["env", "definition", "example", "remark", "lemma", "proposition", "corollary", "theorem"] %}

@@ -35,7 +35,7 @@
           {% for chapter in part.chapters %}
             <li><p><a href="/tag/{{ chapter.tag }}">Chapter <span data-tag="{{ chapter.tag }}">{{ chapter.ref }}</span></a>: {{ chapter.name }}
             {% set filename = chapter.label.split("-section-")[0] %}</p>
-            <a href="/download/{{ filename }}.pdf" class="pdf-link">pdf</a>
+          <!--  <a href="/download/{{ filename }}.pdf" class="pdf-link">pdf</a> -->
           {% endfor %}
         </ul>
         <hr class="my-1">

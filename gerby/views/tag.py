@@ -227,12 +227,13 @@ def show_tag(tag):
       if count > 0:
         parentComments.append([parent, count])
 
-  if tag.type == "part":
-    filename = "part-" + tag.label.split("-part-")[1]
-  elif tag.type == "chapter":
-    filename = tag.label.split("-section-")[0]
-  else:
-    filename = tag.label.split("-" + tag.type)[0]
+#  if tag.type == "part":
+#    filename = "part-" + tag.label.split("-part-")[1]
+#  elif tag.type == "chapter":
+#    filename = tag.label.split("-section-")[0]
+#  else:
+#    filename = tag.label.split("-" + tag.type)[0]
+  filename = ""
 
   return render_template("tag.show.html",
                          tag=tag,

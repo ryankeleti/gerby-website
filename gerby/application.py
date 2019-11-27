@@ -98,18 +98,10 @@ def show_index():
 
     updates.append(update)
 
-  comments = []
-  if Comment.table_exists():
-    comments = Comment.select().where(Comment.active).order_by(Comment.id.desc()).paginate(1, 5)
-
-  for comment in comments:
-    comment.tag = Tag.get(Tag.tag == comment.tag)
-
   return render_template(
       "index.html",
       updates=updates,
       statistics=get_statistics(),
-      comments=comments,
       )
 
 
@@ -129,7 +121,6 @@ def show_statistics():
   extras = dict()
   for (name, extra) in {"slogans": Slogan, "references": Reference, "historical remarks": History}.items():
     extras[name] = extra.select().count()
-  extras["comments"] = Comment.select().where(Comment.active).count()
 
   records = dict()
   records["complex"] = TagStatistic.select(TagStatistic.tag, fn.MAX(TagStatistic.value).alias("value")).where(TagStatistic.statistic == "preliminaries").execute()[0]
@@ -168,7 +159,6 @@ def show_robots():
 app.jinja_env.add_extension('jinja2.ext.do')
 
 import gerby.views.bibliography
-import gerby.views.comments
 import gerby.views.search
 import gerby.views.tag
 

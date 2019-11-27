@@ -7,10 +7,39 @@
 
 {% block body %}
   <h2>Table of contents</h2>
-  <ul class="entries">
-  {% for chapter in chapters %}
-    <li><a href="/tag/{{ chapter.tag }}">Chapter <span data-tag="{{ chapter.tag }}">{{ chapter.ref }}</span> {{ chapter.name }}</a>
-  {% endfor %}
+  <ul id="toc" class="tree">
+    {% for chapter in chapters %}
+      <li id="{{ chapter.tag }}" class="expanded">
+        <a class="header-offset" id="{{ chapter.label }}"></a>
+        <strong><a href="/tag/{{ chapter.tag }}">Part <span data-tag="{{ chapter.tag }}">{{ chapter.ref }}</span></a>: {{ chapter.name }}</strong>
+        <a href="https:fppf.site/ega/ega{{ chapter.ref }}-auto.pdf" class="pdf-link">pdf</a>
+        <ul>
+          {% for section in chapter.section %}
+            <li><p><a href="/tag/{{ section.tag }}">Chapter <span data-tag="{{ section.tag }}">{{ section.ref }}</span></a>: {{ section.name }}
+          {% endfor %}
+        </ul>
+        <hr class="my-1">
+    {% endfor %}
   </ul>
+<script type="text/javascript">
+$("ul.tree").bonsai({
+  addExpandAll: true,
+});
+
+var state = localStorage.getItem("bonsai-toc");
+if (state !== null) {
+  $("ul#toc").data("bonsai").restore(JSON.parse(state));
+}
+
+$("ul#toc").click(function() {
+  var bonsai = $(this).data("bonsai");
+  var state = bonsai.serialize();
+  localStorage.setItem("bonsai-toc", JSON.stringify(state));
+});
+
+$("div.expand-all").click(function() {
+  $("ul#toc").click();
+});
+</script>
 {% endblock %}
 

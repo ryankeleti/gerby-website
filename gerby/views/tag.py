@@ -10,9 +10,8 @@ import gerby.configuration
 
 import re
 
-headings = ["part", "chapter", "section", "subsection", "subsubsection"]
-hideComments = ["part", "chapter"]
-extras = {"slogan": Slogan, "history": History, "reference": Reference}
+headings = ["part", "chapter", "section", "subsection"]
+#extras = {"slogan": Slogan, "history": History, "reference": Reference}
 
 # Tags pattern as used in the tag_up scripts
 TAGS_PATTERN = re.compile("^[0-9a-zA-Z]{4}")
@@ -209,24 +208,6 @@ def show_tag(tag):
 
     tree = combine(sorted(tags))
 
-  # dealing with comments
-  commentsEnabled = tag.type not in hideComments and Comment.table_exists()
-  comments = []
-  parentComments = []
-  if commentsEnabled:
-    comments = Comment.select().where(Comment.tag == tag.tag, Comment.active)
-    for comment in comments:
-      comment.comment = sfm(comment.comment)
-
-    # looking for comments higher up in the breadcrumb
-    parentComments = []
-    for parent in breadcrumb:
-      if parent.tag == tag.tag:
-        continue
-      count = Comment.select().where(Comment.tag == parent.tag, Comment.active).count() # this could be done in a single JOIN
-      if count > 0:
-        parentComments.append([parent, count])
-
 #  if tag.type == "part":
 #    filename = "part-" + tag.label.split("-part-")[1]
 #  elif tag.type == "chapter":
@@ -243,10 +224,7 @@ def show_tag(tag):
                          footnotes=footnotes,
                          dependencies=tag.incoming,
                          tree=tree,
-                         commentsEnabled=commentsEnabled,
-                         comments=comments,
                          filename=filename,
-                         parentComments=parentComments,
                          depth=gerby.configuration.DEPTH)
 
 @app.route("/tag/<string:tag>/cite")

@@ -9,10 +9,7 @@ def decorateEntries(entries):
     # make the fields accessible in Jinja
     for field in fields:
       setattr(entry, field.field, field.value)
-
   return entries
-
-
 
 @app.route("/bibliography")
 def show_bibliography():
@@ -28,7 +25,6 @@ def show_entry(key):
     entry = BibliographyEntry.get(BibliographyEntry.key == key)
   except BibliographyEntry.DoesNotExist:
     return render_template("bibliography.notfound.html", key=key), 404
-
 
   fields = BibliographyField.select().where(BibliographyField.key == entry.key)
   entry.fields = dict()
@@ -58,3 +54,4 @@ def show_entry(key):
                          entry=entry,
                          neighbours=neighbours,
                          citations=citations)
+

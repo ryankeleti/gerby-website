@@ -4,16 +4,10 @@ from peewee import *
 from playhouse.sqlite_ext import *
 
 db = SqliteExtDatabase(None)
-comments = SqliteDatabase(COMMENTS);
 
 class BaseModel(Model):
   class Meta:
     database = db
-
-class CommentBaseModel(Model):
-  class Meta:
-    database = comments
-
 
 # basic tag data
 class Tag(BaseModel):
@@ -164,16 +158,4 @@ class TagStatistic(BaseModel):
 class BookStatistic(BaseModel):
   statistic = TextField()
   value = IntegerField()
-
-
-# comments
-class Comment(CommentBaseModel):
-  id = PrimaryKeyField()
-  tag = TextField(Tag)
-  author = TextField()
-  site = TextField(null=True)
-  email = TextField(null=True)
-  date = DateTimeField(default=datetime.datetime.now)
-  comment = TextField(null=True)
-  active = BooleanField(default=True)
 

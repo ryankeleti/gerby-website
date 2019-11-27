@@ -12,7 +12,7 @@
     <li id="index-blog"><a href="https://ryankeleti.github.io/ega/"><img src="/static/images/blog.svg">site</a>
     <li id="index-bibliography"><a href="/bibliography">bibliography<img src="/static/images/bibliography.svg"></a>
     <li id="index-github"><a href="https://github.com/ryankeleti/ega"><img src="/static/images/github.svg">github</a>
-    <li id="index-comments"><a href="/recent-comments">comments<img src="/static/images/comments.svg"></a>
+    <li id="index-comments"><a href="https://github.com/ryankeleti/ega/issues">issues<img src="/static/images/comments.svg"></a>
     <li id="index-changes"><a href="/recent-changes"><img src="/static/images/diff.svg">recent changes</a>
   </ul>
 {% endblock %}
@@ -22,16 +22,6 @@
 {% endblock %}
 
 {% block sidebar %}
-  <h3><a href="/recent-comments">Recent comments</a></h3>
-  <ul>
-    {% for comment in comments %}
-      <li>
-        <time datetime="{{ comment.date }}">{{ comment.date.strftime("%b %d %Y") }}</time>:
-        <a href="/tag/{{ comment.tag.tag }}#comment-{{ comment.id }}">tag&nbsp;<span class="tag">{{ comment.tag.tag }}</span></a>
-        by <cite>{{ comment.author }}</cite>
-    {% endfor %}
-  </ul>
-
   {% for update in updates %}
     <h3>{{ update.title | safe }}</h3>
     <ul>

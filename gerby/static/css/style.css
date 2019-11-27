@@ -4,7 +4,6 @@
 
 @import url("bibliography.css");
 @import url("browse.css");
-@import url("comments.css");
 @import url("search.css");
 @import url("tag.css");
 @import url("toc.css");
@@ -341,8 +340,7 @@ ul#index-select li img {
 
 ul#index-select li#index-browse,
 ul#index-select li#index-search,
-ul#index-select li#index-bibliography,
-ul#index-select li#index-comments {
+ul#index-select li#index-bibliography {
   text-align: right;
 }
 

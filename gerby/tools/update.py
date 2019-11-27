@@ -13,11 +13,9 @@ from PyPDF2 import PdfFileReader
 from gerby.database import *
 import gerby.configuration
 
-
 # helper function
 def flatten(l):
   return [item for sublist in l for item in sublist]
-
 
 def getTags():
   # Get dictionary of tags
@@ -414,10 +412,6 @@ if __name__ == "__main__":
     for model in [Tag, Proof, Slogan, History, Reference, Commit, Change]:
       model.create_table()
     log.info("Created database")
-
-  if not os.path.isfile(gerby.configuration.COMMENTS):
-    Comment.create_table()
-    log.info("Created COMMENTS database")
 
   # the information on disk
   tags = getTags()

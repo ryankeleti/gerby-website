@@ -29,8 +29,6 @@ spelling = {
     "fibres": "fib*",
     "fibred": "fib*",
     "etale": "étale",
-    "proetale": "\"pro-étale\"",
-    "\"pro-etale\"": "\"pro-étale\"",
     }
 
 @app.route("/tag")

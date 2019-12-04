@@ -4,7 +4,6 @@
 
 {% block head %}
   <script type="text/javascript" src="/static/js/toggle.js"></script>
-
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jquery-bonsai@2.1.2/jquery.bonsai.css" integrity="sha384-U1uEPfU2/stCtBJ6oZS4XLX35g0MD+BZTTskUun0Vhv64RLEaTUXtcpxGScTbkUP" crossorigin="anonymous">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-bonsai@2.1.2/jquery.bonsai.min.js" integrity="sha384-ZKch/OmPYYZT/9GpxSgMqUIDdBjwYYuJ3+CfQytRQElwdBsCMJkEmcsynJlFlsCS" crossorigin="anonymous"></script>
 {% endblock %}
@@ -18,24 +17,15 @@
 
 {% block body %}
   <h2>Table of contents</h2>
-
   <ul id="toc" class="tree">
     {% for part in parts %}
       <li id="{{ part.tag }}" class="expanded">
         <a class="header-offset" id="{{ part.label }}"></a>
         <strong><a href="/tag/{{ part.tag }}">Part <span data-tag="{{ part.tag }}">{{ part.ref }}</span></a>: {{ part.name }}</strong>
         <a href="https:fppf.site/ega/ega{{ part.ref }}-auto.pdf" class="pdf-link">pdf</a>
-
-        {#
-        {% set filename = part.label.split("-part-")[1] %}
-        <a href="/download/part-{{ filename }}.pdf" class="pdf-link">pdf</a>
-        #}
-
         <ul>
           {% for chapter in part.chapters %}
-            <li><p><a href="/tag/{{ chapter.tag }}">Chapter <span data-tag="{{ chapter.tag }}">{{ chapter.ref }}</span></a>: {{ chapter.name }}
-            {% set filename = chapter.label.split("-section-")[0] %}</p>
-          <!--  <a href="/download/{{ filename }}.pdf" class="pdf-link">pdf</a> -->
+            <li><p><a href="/tag/{{ chapter.tag }}">Chapter <span data-tag="{{ chapter.tag }}">{{ chapter.ref }}</span></a>: {{ chapter.name }}</p>
           {% endfor %}
         </ul>
         <hr class="my-1">
@@ -43,7 +33,7 @@
   </ul>
   <script type="text/javascript">
 $("ul.tree").bonsai({
-  addExpandAll: true,
+  addExpandAll:false,
 });
 
 var state = localStorage.getItem("bonsai-toc");
@@ -64,25 +54,8 @@ $("div.expand-all").click(function() {
 {% endblock %}
 
 {% block sidebar %}
-  <div class="interaction">
-  </div>
-
+  <div class="interaction"></div>
   <hr>
-
-  <ul>
-  {% for part in parts %}
-    <li><a class="sidebar-link" data-for="{{ part.tag }}" href="#{{ part.label }}">Part <span data-tag="{{ part.tag }}">{{ part.ref }}</span></a>: {{ part.name }}
-  {% endfor %}
-  <script type="text/javascript">
-$("a.sidebar-link").click(function() {
-  var bonsai = $("ul#toc").data("bonsai");
-  bonsai.expand($("li#" + $(this).data("for")));
-});
-  </script>
-  </ul>
-
-  <hr>
-
   <a href="https://fppf.site/ega/book-auto.pdf">Download full PDF</a>
 {% endblock %}
 

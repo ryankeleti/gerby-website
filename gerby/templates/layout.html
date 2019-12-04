@@ -29,7 +29,7 @@
       TagSide: 'left'
     },
     tex2jax: {
-//    inlineMath: [['$','$']],
+      inlineMath: [['$','$']],
       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
     },
     'HTML-CSS': { scale: 100 }
@@ -37,7 +37,7 @@
 </script>
 
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script>
-
+<!--
 <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
   integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
@@ -51,7 +51,8 @@
   document.addEventListener("DOMContentLoaded",function() {
     renderMathInElement(document.body,{delimiters:[
 //{left: "$$", right: "$$", display: true},
-                                                   {left: "$",  right: "$",  display: false}]});});</script>
+      {left: "$",  right: "$",  display: false}]});});
+</script>-->
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -60,62 +61,60 @@
 <link rel="stylesheet" type="text/css" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" integrity="sha384-yBEPaZw444dClEfen526Q6x4nwuzGO6PreKpbRVSLFCci3oYGE5DnD1pNsubCxYW" crossorigin="anonymous">
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" integrity="sha384-cd07Jx5KAMCf7qM+DveFKIzHXeCSYUrai+VWCPIXbYL7JraHMFL/IXaCKbLtsxyB" crossorigin="anonymous"></script>
 
-<link rel="icon" type="image/vnd.microsoft.icon" href="/static/stacks.ico">
-<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/static/stacks.ico">
+<link rel="icon" type="image/vnd.microsoft.icon" href="/static/favicon.ico">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/static/favicon.ico">
 
 {% block head %}{% endblock %}
-
 </head>
 
 <body>
-<div class="container-fluid bounded">
-  <div id="first-bar" class="row topbar inner-top top">
-    <header class="col">
-      <h1><a href="/">EGA</a></h1>
-    </header>
-
-    <nav id="header">
-      <ul id="quicklinks">
-        <li><a href="/bibliography">bibliography</a>
-        <li><a href="https://github.com/ryankeleti/ega">repo</a>
-      </ul>
-
-      <form id="quicksearch" action="/search">
-        <span id="search-icon"><img src="/static/images/search.svg"></span>
-        <input type="search" name="query" size="16" placeholder="keywords or a tag"{% if index %} autofocus{% endif %} value="{{ query }}">
-      </form>
-    </nav>
+<nav class="navbar navbar-expand-md navbar-light">
+  <a class="navbar-brand" href="/">EGA</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#drop"
+  aria-controls="drop" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="drop">
+    <ul class="navbar-nav mr-auto">
+      <li><a class="nav-item nav-link" href="/browse">contents</a>
+      <li><a class="nav-item nav-link" href="/about">about</a>
+      <li><a class="nav-item nav-link" href="/search">search</a>
+      <li><a class="nav-item nav-link" href="https://github.com/ryankeleti/ega">repo</a>
+      <li><a class="nav-item nav-link" href="/bibliography">bibliography</a>
+      <li><a class="nav-item nav-link" href="/recent-changes">changes</a>
+    </ul>
   </div>
+</nav>
+<nav class="navbar navbar-expand-md navbar-light">
+  {% if self.breadcrumb() %}
+    <ul class="col-11 col-sm-11 col-md-11 col-lg-12 col-xl-12" id="crumbs">
+      <li><a href="/browse">Table of contents</a></li>
+      {% block breadcrumb %}{% endblock %}
+    </ul>
+  {% endif %}
 
-  <nav id="second-bar" class="row topbar sticky-top">
-    {% if self.breadcrumb() %}
-      <ul class="col-11 col-sm-11 col-md-11 col-lg-12 col-xl-12" id="crumbs">
-        <li><a href="/browse">Table of contents</a></li>
-        {% block breadcrumb %}{% endblock %}
-      </ul>
-    {% endif %}
+  {% if self.hamburger() %}
+    <div class="col-1 col-sm-1 col-md-1" id="burger">
+      <input type="checkbox" id="burger-input"></input>
 
-    {% if self.hamburger() %}
-      <div class="col-1 col-sm-1 col-md-1" id="burger">
-        <input type="checkbox" id="burger-input"></input>
+      <label id="burger-icon" for="burger-input">
+        <span id="top-bun"></span>
+        <span id="meat"></span>
+        <span id="bottom-bun"></span>
+      </label>
 
-        <label id="burger-icon" for="burger-input">
-          <span id="top-bun"></span>
-          <span id="meat"></span>
-          <span id="bottom-bun"></span>
-        </label>
-
-        <div id="burger-content">
-          {% block hamburger %}{% endblock %}
-        </div>
+      <div id="burger-content">
+        {% block hamburger %}{% endblock %}
       </div>
-    {% endif %}
+    </div>
+  {% endif %}
 
-    {% if self.tagline() %}
-      {% block tagline %}{% endblock %}
-    {% endif %}
-  </nav>
-
+  {% if self.tagline() %}
+    {% block tagline %}{% endblock %}
+  {% endif %}
+</nav>
+<main role="main" class="container-fluid">
+<div class="jumbotron" class="jumbo">
   <div class="row" id="content">
     <section id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
       {% block body %}{% endblock %}
@@ -128,6 +127,7 @@
   </div>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js" integrity="sha384-3ziFidFTgxJXHMDttyPJKDuTlmxJlwbSkojudK/CkRqKDOmeSbN6KLrGdrBQnT2n" crossorigin="anonymous"></script>
 </div>
+</main>
 </body>
 </html>
 

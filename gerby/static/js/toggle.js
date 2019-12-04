@@ -39,3 +39,4 @@ $(document).ready(function() {
     $("section#meta input.toggle").bootstrapToggle("toggle");
   }
 });
+

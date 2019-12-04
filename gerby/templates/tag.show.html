@@ -4,10 +4,8 @@
 
 {% block head %}
   <script type="text/javascript" src="/static/js/toggle.js"></script>
-
   <link rel="stylesheet" type="text/css" href="https://unpkg.com/easymde@2.0.1/dist/easymde.min.css" integrity="sha384-IRbzB9px0sfIx90vkN+geaX3F4LVcg/M+k5vmVkfjs5TnRX3MIhGS8Ma06ALKVYp" crossorigin="anonymous">
   <script src="https://unpkg.com/easymde@2.0.1/dist/easymde.min.js" integrity="sha384-v06sb0t0ToY1YRtVlfD/GCGpIZ/QHYyeH2Gzjvr0ZJI62/50DIzT8XRgQ6JvptVu" crossorigin="anonymous"></script>
-
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jquery-bonsai@2.1.2/jquery.bonsai.css" integrity="sha384-U1uEPfU2/stCtBJ6oZS4XLX35g0MD+BZTTskUun0Vhv64RLEaTUXtcpxGScTbkUP" crossorigin="anonymous">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-bonsai@2.1.2/jquery.bonsai.min.js" integrity="sha384-ZKch/OmPYYZT/9GpxSgMqUIDdBjwYYuJ3+CfQytRQElwdBsCMJkEmcsynJlFlsCS" crossorigin="anonymous"></script>
 {% endblock %}
@@ -22,18 +20,6 @@
 
 {% block body %}
 <div class="html" id="tag">
-  {% if tag.slogan %}
-    <p class="slogan alert alert-primary"><strong>{{ tag.slogan.html | safe }}</strong>
-  {% endif %}
-
-  {% if tag.reference %}
-    <p class="reference alert alert-info">{{ tag.reference.html | safe }}
-  {% endif %}
-
-  {% if tag.history %}
-    <p class="history alert alert-secondary">{{ tag.history.html | safe }}
-  {% endif %}
-
   {{ html | safe }}
 
   <script type="text/javascript">
@@ -65,7 +51,7 @@ $(document).ready(function() {
     </ul>
     <script type="text/javascript">
 $("ul.tree").bonsai({
-  addExpandAll: true,
+  addExpandAll:false,
 });
 
 var state = localStorage.getItem("bonsai-{{ tag.tag }}");
@@ -87,7 +73,6 @@ $(function () {
   $('[data-toggle="popover"]').popover()
 })
     </script>
-
   {% endif %}
 
   {% if footnotes %}
@@ -98,7 +83,6 @@ $(function () {
     </section>
   {% endif %}
 </div>
-
 {% endblock %}
 
 {% block sidebar %}

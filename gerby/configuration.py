@@ -2,7 +2,7 @@
 
 # configuration for the website
 DATABASE = "ega.sqlite"
-UNIT     = "subsection"
+UNIT     = "section"
 DEPTH    = 0
 
 # configuration for the import

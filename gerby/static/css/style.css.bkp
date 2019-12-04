@@ -312,6 +312,60 @@ a[href*=".atom"] {
   background-image: url("../images/icon.rss.png");
 }
 
+ul#index-select {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: calc(400rem / 14);
+}
+
+ul#index-select li {
+  float: left;
+  width: 48%;
+  margin-left: 4px;
+  margin-bottom: 1em;
+  border: 1px solid black;
+  border-radius: 6px;
+  box-shadow: 1px 1px 1px gray;
+}
+
+ul#index-select li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  height: 4em;
+  line-height: 4em;
+}
+
+ul#index-select li img {
+  width: 2.5em;
+  padding: 0 .4em;
+}
+
+ul#index-select li#index-browse,
+ul#index-select li#index-search,
+ul#index-select li#index-bibliography {
+  text-align: right;
+}
+
+ul#index-select a {
+  background-image: none;
+}
+
+.header-offset {
+  display: inline-block;
+  position: relative;
+  top: -4em;
+  visibility: hidden;
+}
+
+.footnote-offset {
+  display: inline-block;
+  position: relative;
+  top: -10em;
+  visibility: hidden;
+}
+
 pre {
   white-space: pre-wrap;
   word-wrap: break-word;

@@ -19,7 +19,7 @@
       <li id="{{ chapter.tag }}" class="expanded">
         <a class="header-offset" id="{{ chapter.label }}"></a>
         <strong><a href="/tag/{{ chapter.tag }}">Part <span data-tag="{{ chapter.tag }}">{{ chapter.ref }}</span></a>: {{ chapter.name }}</strong>
-        <a href="https:fppf.site/ega/ega{{ chapter.ref }}-auto.pdf" class="pdf-link">pdf</a>
+        <a href="https://fppf.site/ega/ega{{ chapter.ref }}-auto.pdf" class="pdf-link">pdf</a>
         <ul>
           {% for section in chapter.section %}
             <li><p><a href="/tag/{{ section.tag }}">Chapter <span data-tag="{{ section.tag }}">{{ section.ref }}</span></a>: {{ section.name }}

@@ -30,7 +30,7 @@ pre.commit-message {
   <dl id="changes" class="row">
     {% for commit in commits %}
       <dt class="col-sm-3">{{ commit.time.strftime("%b %-d, %Y") }}</dt>
-      <dd class="col-sm-9"><a href="https://gihub.com/ryankeleti/ega/commit/{{ commit.hash }}">{{ commit.hash[0:7] }}</a></dd>
+      <dd class="col-sm-9"><a href="https://github.com/ryankeleti/ega/commit/{{ commit.hash }}">{{ commit.hash[0:7] }}</a></dd>
       <dd class="col-sm-9 offset-sm-3"><pre class="commit-message">{{ commit.log.splitlines()[0] }}</pre>
       <dd class="col-sm-9 offset-sm-3">
         {% if commit.tags | length > 20 %}<p>More than 20 tags were affected, see the commit for more information.

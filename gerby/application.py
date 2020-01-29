@@ -42,6 +42,29 @@ feeds = {
 # set timeout for feed request
 socket.setdefaulttimeout(5)
 
+def egaroman(x):
+    roman = "0"
+    if x == "1":
+        roman = "I"
+    elif x == "2":
+        roman = "II"
+    elif x == "3":
+        roman = "III"
+    elif x == "4":
+        roman = "IV"
+    return roman
+
+def egaref(x):
+    m = re.match(r"(\d)\.(.*)", str(x))
+    if m is None:
+        m = re.match(r"(\d)", str(x))
+        if m is None:
+            return x
+        return egaroman(m.group(1))
+    return egaroman(m.group(1)) + "." + m.group(2)
+
+app.jinja_env.globals.update(egaref=egaref)
+
 def get_statistics():
   statistics = []
 

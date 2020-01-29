@@ -41,11 +41,13 @@ $(document).ready(function() {
   {% if tree %}
     <ul class="tree" id="tree">
     {% for item in tree recursive %}
+      {% if item.type not in ["env","proposition","lemma","corollary","theorem","remark","definition","example","notation"] %}
       {% if loop.depth <= depth %}<li class="expanded" id="{{ item.tag }}">{% else %}<li id="{{ item.tag }}">{% endif %}
-      {{ item.type | capitalize }} <a href="/tag/{{ item.tag }}" data-tag="{{ item.tag }}">{{ item.ref }}</a>{% if item.name %}: {{ item.name | safe }}{% endif %}
+      {{ item.type | capitalize }} <a href="/tag/{{ item.tag }}" data-tag="{{ item.tag }}">{{ egaref(item.ref) }}</a>{% if item.name %}: {{ item.name | safe }}{% endif %}
       {{ macros.badges(item) }}
       {% if item.children %}
         <ul>{{ loop(item.children) }}</ul>
+      {% endif %}
       {% endif %}
     {% endfor %}
     </ul>

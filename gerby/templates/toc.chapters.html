@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block title %}Chapters{% endblock %}
+{% block title %}Table of contents{% endblock %}
 
 {% block head %}
   <script type="text/javascript" src="/static/js/toggle.js"></script>
@@ -18,10 +18,10 @@
     {% for chapter in chapters %}
       <li id="{{ chapter.tag }}" class="expanded">
         <a class="header-offset" id="{{ chapter.label }}"></a>
-        <strong><a href="/tag/{{ chapter.tag }}">Part <span data-tag="{{ chapter.tag }}">{{ chapter.ref }}</span></a>: {{ chapter.name }}</strong>
+        <strong><a href="/tag/{{ chapter.tag }}">Part <span data-tag="{{ chapter.tag }}">{{ egaref(chapter.ref) }}</span></a>: {{ chapter.name }}</strong>
         <a href="https://fppf.site/ega/ega{{ chapter.ref }}-auto.pdf" class="pdf-link">pdf</a>
         <ul>
-          {% for section in chapter.section %}
+          {% for section in chapter.sections %}
             <li><p><a href="/tag/{{ section.tag }}">Chapter <span data-tag="{{ section.tag }}">{{ section.ref }}</span></a>: {{ section.name }}
           {% endfor %}
         </ul>
@@ -48,5 +48,11 @@ $("div.expand-all").click(function() {
   $("ul#toc").click();
 });
 </script>
+{% endblock %}
+
+{% block sidebar %}
+  <div class="interaction"></div>
+  <hr>
+  <a href="https://fppf.site/ega/book-auto.pdf">Download full PDF</a>
 {% endblock %}
 

@@ -67,8 +67,21 @@
 {% block head %}{% endblock %}
 </head>
 
+<style>
+body {
+  padding-top:50px;
+}
+.ega-navbar {
+  margin:0px;
+  margin-bottom:0px;
+}
+.breadcrumb-navbar {
+  margin:0px;
+}
+</style>
+
 <body>
-<nav class="navbar navbar-expand-md navbar-light">
+<nav class="navbar navbar-expand-md navbar-light bg-white fixed-top ega-navbar">
   <a class="navbar-brand" href="/">EGA</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#drop"
   aria-controls="drop" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,7 +98,7 @@
     </ul>
   </div>
 </nav>
-<nav class="navbar navbar-expand-md navbar-light">
+<nav class="navbar navbar-expand-md navbar-light bg-white breadcrumb-navbar">
   {% if self.breadcrumb() %}
     <ul class="col-11 col-sm-11 col-md-11 col-lg-12 col-xl-12" id="crumbs">
       <li><a href="/browse">Table of contents</a></li>

@@ -19,6 +19,7 @@
 {% macro tagInformation(tag, dependencies) %}
   <ul class="tag-info">
     <!--<li class="tag-history"><a href="/tag/{{ tag.tag }}/history">history</a>-->
+    <li class="tag-github"><a href="http://github.com/ryankeleti/ega/issues/new?title=Issue%20with%20{{ egaref(tag.ref) }}%20%28tag%20{{ tag.tag }}%29">create issue on GitHub</a>
     <li class="tag-statistics"><a href="/tag/{{ tag.tag }}/statistics">statistics</a>
     {% if dependencies | length > 0 %}
       <li class="tag-dependencies"><a href="/tag/{{ tag.tag }}/statistics#dependencies">{{ dependencies | length }} tag{% if dependencies | length > 1 %}s{% endif %} refer{% if dependencies | length == 1 %}s{% endif %} to this tag</a>
@@ -45,10 +46,10 @@
     {{ neighbours(neighboursList, neighboursModifier, tag) }}
   </div>
 
-  <hr>
   {# todo #}
-  {% if tag.type == "part" %}
-    {#<a href="https://fppf.site/ega/ega{{ tag.ref }}-auto.pdf">View Part <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>#}
+  {% if tag.type == "chapter" %}
+    <hr>
+    <a href="https://fppf.site/ega/ega{{ tag.ref }}-auto.pdf">View EGA<span data-tag="{{ tag.tag }}">{{ egaref(tag.ref) }}</span> as pdf</a>
   {% else %}
 <!--
     <a href="https://fppf.site/ega/ega{{ tag.ref }}-auto.pdf#nameddest={{ tag.tag }}">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>

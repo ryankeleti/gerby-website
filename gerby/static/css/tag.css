@@ -255,6 +255,10 @@ li.tag-history a {
   background-image: url("../images/clock.svg");
 }
 
+li.tag-github a {
+  background-image: url("../images/github.svg");
+}
+
 li.tag-statistics a {
   background-image: url("../images/graph.svg");
 }

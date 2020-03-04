@@ -179,6 +179,9 @@ def show_chapters():
 
     return render_template("toc.chapters.html", chapters=chapters)
 
+@app.route("/pdfs")
+def show_pdfs():
+  return render_template("single/pdfs.html")
 
 @app.route("/robots.txt")
 def show_robots():

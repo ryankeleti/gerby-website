@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}PDFs{% endblock %}
+
+{% block breadcrumb %}
+  <li><a href="/pdfs">PDFs</a>
+{% endblock %}
+
+{% block hamburger %}
+  {{ macros.singlePageLinks() }}
+{% endblock %}
+
+{% block body %}
+<h2><abbr title="Portable Document Format">PDF</abbr> files</h2>
+<p>
+Here are the <abbr title="Portable Document Format">PDF</abbr> files periodically built when changes are made to the <a href="https://github.com/ryankeleti/ega">git repository</a>; usually these files may be a little ahead of the content on this site.
+
+<ul>
+  <li><a href="https://fppf.site/ega/book-auto.pdf">Full document</a></li>
+  <li><a href="https://fppf.site/ega/what-auto.pdf">What this is</a></li>
+  <li><a href="https://fppf.site/ega/intro-auto.pdf">Introduction</a></li>
+  <li><a href="https://fppf.site/ega/ega0-auto.pdf">EGA 0</a></li>
+  <li><a href="https://fppf.site/ega/ega1-auto.pdf">EGA I</a></li>
+  <li><a href="https://fppf.site/ega/ega2-auto.pdf">EGA II</a></li>
+  <li><a href="https://fppf.site/ega/ega3-auto.pdf">EGA III</a></li>
+  <li><a href="https://fppf.site/ega/ega4-auto.pdf">EGA IV</a></li>
+  <li><a href="https://fppf.site/ega/ref-auto.pdf">References</a></li>
+</ul>
+</p>
+{% endblock %}
+
+{% block sidebar %}
+  {{ macros.singlePageLinks() }}
+{% endblock %}
+

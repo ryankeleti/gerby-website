@@ -14,8 +14,11 @@
   <div class="d-flex justify-content-start">
     <h2><a href="/browse">Click here to start reading!</a></h2>
   </div>
-  <br />
+  
+  <h3><a href="/pdfs"><abbr title="Portable Document Format">PDF</abbr> versions here!</a></h3>
 
+  <hr />
+  
   {% for update in updates %}
     <h3>{{ update.title | safe }}</h3>
     <ul>

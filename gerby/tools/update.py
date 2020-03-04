@@ -172,6 +172,26 @@ def assignParts():
 
 
 @db.atomic('EXCLUSIVE')
+def assignChapters():
+  # link sections to chapters
+  if Chapter.table_exists():
+    Chapter.drop_table()
+  Chapter.create_table()
+
+  chaptersFile = os.path.join(gerby.configuration.PATH, "chapters.json")
+  if os.path.isfile(chaptersFile):
+    with open(chaptersFile) as f:
+      chapters = json.load(f)
+      for chapter in chapters:
+        for section in chapters[chapter]:
+          Chapter.create(chapter=Tag.get(Tag.type == "chapter", Tag.ref == chapter),
+                      section=Tag.get(Tag.type == "section", Tag.ref == section))
+  else:
+    log.warning("  Unable to find 'chapters.json'; skipping chapters assignment.")
+    Chapter.drop_table()
+
+
+@db.atomic('EXCLUSIVE')
 def checkInactivity(tags):
   # check (in)activity of tags
   for tag in Tag.select():
@@ -384,6 +404,8 @@ if __name__ == "__main__":
                       help='do not make search table')
   parser.add_argument('--noParts', action='store_true', default=False,
                       help='do not assign chapters to parts')
+  parser.add_argument('--noChapters', action='store_true', default=False,
+                      help='do not assign sections to chapters')
   parser.add_argument('--noInactivityCheck', action='store_true', default=False,
                       help='do not check whether tags have become inactive')
   parser.add_argument('--noDependencies', action='store_true', default=False,
@@ -437,6 +459,10 @@ if __name__ == "__main__":
   if not args.noParts:
     log.info("Assigning chapters to parts")
     assignParts()
+
+  if not args.noChapters:
+    log.info("Assigning sections to chapters")
+    assignChapters()
 
   if not args.noInactivityCheck:
     log.info("Checking inactivity")

@@ -163,13 +163,19 @@ def show_chapters():
 
     for part in parts:
       part.chapters = sorted([chapter.chapter for chapter in chapters if chapter.part.tag == part.tag])
-
+    
     return render_template("toc.parts.html", parts=parts)
 
   # chapter is top-level
   else:
+#    sections = Chapter.select()
     chapters = Tag.select().where(Tag.type == "chapter")
     chapters = sorted(chapters)
+
+#    chapters = Tag.select().join(Chapter, on=Chapter.chapter).order_by(Tag.ref).distinct()
+#    
+#    for chapter in chapters:
+#      chapter.sections = sorted([section.section for section in sections if section.chapter.tag == chapter.tag])
 
     return render_template("toc.chapters.html", chapters=chapters)
 

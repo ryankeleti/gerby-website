@@ -10,6 +10,12 @@
 
 {% block body %}
 {#{% block sidebar %}#}
+
+  <div class="d-flex justify-content-start">
+    <h2><a href="/browse">Click here to start reading!</a></h2>
+  </div>
+  <br />
+
   {% for update in updates %}
     <h3>{{ update.title | safe }}</h3>
     <ul>

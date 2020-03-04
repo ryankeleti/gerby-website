@@ -51,6 +51,9 @@ class Part(BaseModel):
   part = ForeignKeyField(Tag)
   chapter = ForeignKeyField(Tag)
 
+class Chapter(BaseModel):
+  chapter = ForeignKeyField(Tag)
+  section = ForeignKeyField(Tag)
 
 class Dependency(BaseModel):
   tag = ForeignKeyField(Tag, backref="outgoing")

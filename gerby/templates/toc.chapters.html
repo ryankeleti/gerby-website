@@ -22,7 +22,7 @@
         <a href="https://fppf.site/ega/ega{{ chapter.ref }}-auto.pdf" class="pdf-link">pdf</a>
         <ul>
           {% for section in chapter.sections %}
-            <li><p><a href="/tag/{{ section.tag }}">Chapter <span data-tag="{{ section.tag }}">{{ section.ref }}</span></a>: {{ section.name }}
+            <li><p><a href="/tag/{{ section.tag }}">Section <span data-tag="{{ section.tag }}">{{ section.ref }}</span></a>: {{ section.name }}
           {% endfor %}
         </ul>
         <hr class="my-1">
